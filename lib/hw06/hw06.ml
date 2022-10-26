@@ -44,7 +44,7 @@ let string_of_int_nlist xss =
 (* to_list: 'a nlist -> 'a list *)
 let to_list xss =
   let rec to_list_helper acc = function
-    | NList xs :: stack -> to_list_helper acc (xs @ stack)
+    | NList xs :: stack -> to_list_helper acc (xs @ stack) (* Can also use: List.rev_append (List.rev xs) stack *)
     | Atom x :: stack -> to_list_helper (x :: acc) stack
     | [] -> List.rev acc
   in
